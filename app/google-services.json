@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "240813976856",
+    "firebase_url": "https://admin-of-foodymind-default-rtdb.firebaseio.com",
+    "project_id": "admin-of-foodymind",
+    "storage_bucket": "admin-of-foodymind.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240813976856:android:8c1cefaaf5decb30bb426d",
+        "android_client_info": {
+          "package_name": "com.example.adminoffoodymind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240813976856-tnlorg15nqrr61079mhabghj239rro0f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.adminoffoodymind",
+            "certificate_hash": "4e9c27bbedf6303a021eae746d847050c813bfc9"
+          }
+        },
+        {
+          "client_id": "240813976856-vgm5itj440gbrsrs8uiit8ai492aqurc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Ss12LfU7vDDjQCauNy2xyje04eBx8qA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240813976856-vgm5itj440gbrsrs8uiit8ai492aqurc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240813976856:android:210b0649127a5f98bb426d",
+        "android_client_info": {
+          "package_name": "com.example.foodymind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240813976856-vgm5itj440gbrsrs8uiit8ai492aqurc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Ss12LfU7vDDjQCauNy2xyje04eBx8qA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "240813976856-vgm5itj440gbrsrs8uiit8ai492aqurc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="ovo">#FD7E03</color>
+    <color name="textColor">#1FC57A</color>
+    <color name="startColor">#53E88B</color>
+    <color name="endColor">#15BE77</color>
+    <color name="iconcolor">#FEAD1D</color>
+    <color name="red">#FF0000</color>
+</resources>

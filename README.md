@@ -1,7 +1,7 @@
 # 🍔 FoodyMind – Online Food Ordering Application
 
 <p align="center">
-  <img src="foodymindSmaal.png" alt="FoodyMind Logo" width="220"/>
+  <img src="foodymind.png" alt="FoodyMind Logo" width="220"/>
 </p>
 
 <p align="center">

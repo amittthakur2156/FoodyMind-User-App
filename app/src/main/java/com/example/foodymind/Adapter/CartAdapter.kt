@@ -34,9 +34,10 @@ class CartAdapter(
                 val quantity = cartQuantity[position]
                 FoodNameCart.text = cartItems[position]
                 val price = cartItemPrice[position]
-                    .replace("₹","")
-                    .replace("$","")
-                    .toInt()
+                    .replace("₹", "")
+                    .replace("$", "")
+                    .trim()
+                    .toIntOrNull() ?: 0
                 PriceCart.text = "$${price * quantity}"
                 Glide.with(binding.root.context)
                     .load(cartImage[position])
@@ -67,7 +68,8 @@ class CartAdapter(
                 val price = cartItemPrice[position]
                     .replace("₹", "")
                     .replace("$", "")
-                    .toInt()
+                    .trim()
+                    .toIntOrNull() ?: 0
 
                 binding.PriceCart.text =
                     "$${price * cartQuantity[position]}"
@@ -116,8 +118,10 @@ class CartAdapter(
                 cartQuantity[position]--
 
                 val price = cartItemPrice[position]
+                    .replace("₹", "")
                     .replace("$", "")
-                    .toInt()
+                    .trim()
+                    .toIntOrNull() ?: 0
 
 
                 binding.PriceCart.text =

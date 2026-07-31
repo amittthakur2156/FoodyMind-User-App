@@ -41,7 +41,7 @@ class MenuAdapter(private val MenuItems: List<MenuItemModel>
                     intent.putExtra("MenuItemImage", menuItem.foodImage)
                     intent.putExtra("MenuItemDescription", menuItem.foodDescription)
                     intent.putExtra("MenuItemIngredients", menuItem.foodIngredient)
-                    intent.putExtra("MenuItemPrice", "$${menuItem.foodPrice?.replace("₹", "")}")
+                    intent.putExtra("MenuItemPrice", "$${menuItem.foodPrice?.replace("$", "")?.replace("₹", "")}")
                     intent.putExtra("MenuItemId", menuItem.foodId)
 
                     requireContext.startActivity(intent)
@@ -56,7 +56,7 @@ class MenuAdapter(private val MenuItems: List<MenuItemModel>
             binding.apply {
 
                 FoodNameMenu.text = menuItem.foodName
-                priceMenu.text = "$${menuItem.foodPrice?.replace("₹", "")}"
+                priceMenu.text = "$${menuItem.foodPrice?.replace("$", "")?.replace("₹", "")}"
 
                 Glide.with(requireContext)
                     .load(menuItem.foodImage)

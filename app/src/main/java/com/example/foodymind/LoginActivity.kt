@@ -2,6 +2,7 @@ package com.example.foodymind
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,7 @@ import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -220,9 +222,16 @@ class LoginActivity : AppCompatActivity() {
             try {
                 val account = task.getResult(com.google.android.gms.common.api.ApiException::class.java)!!
                 firebaseAuthWithGoogle(account.idToken!!)
-            } catch (e: Exception) {
+            } catch (e: ApiException) {
                 binding.progressBar.visibility = View.GONE
-                Toast.makeText(this, "Google sign in failed", Toast.LENGTH_SHORT).show()
+
+                Log.e("GoogleLogin", "Status Code = ${e.statusCode}", e)
+
+                Toast.makeText(
+                    this,
+                    "Google Sign In Failed: ${e.statusCode}",
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }

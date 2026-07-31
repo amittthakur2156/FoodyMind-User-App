@@ -1,0 +1,4 @@
+- [x] Fix price display and intent extras in `MenuAdapter.kt`
+- [x] Fix price display in `PopularAdapter.kt`
+- [x] Fix price parsing logic in `CartAdapter.kt`
+- [x] Verify build

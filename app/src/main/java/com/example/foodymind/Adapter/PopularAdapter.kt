@@ -139,7 +139,7 @@ class PopularAdapter(
         ) {
 
             binding.FoodNamePopular.text = item
-            binding.pricePopular.text = "$${price.replace("₹", "")}"
+            binding.pricePopular.text = "$${price.replace("$", "").replace("₹", "")}"
 
             Glide.with(binding.root.context)
                 .load(image)

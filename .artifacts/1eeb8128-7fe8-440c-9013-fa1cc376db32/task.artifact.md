@@ -1,4 +1,3 @@
-- [x] Fix price display and intent extras in `MenuAdapter.kt`
-- [x] Fix price display in `PopularAdapter.kt`
-- [x] Fix price parsing logic in `CartAdapter.kt`
+- [x] Remove `android:icon` and `android:roundIcon` from `AndroidManifest.xml`
+- [x] Clear custom adaptive icon XML files (Manifest references removed)
 - [x] Verify build

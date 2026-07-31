@@ -1,25 +1,17 @@
-# Walkthrough - Fixed Price Display and Parsing Issues
+# Walkthrough - Removed App Icon Configuration
 
-I have fixed the bug where some food items were showing multiple dollar signs (e.g., "$$7") and improved the robustness of price parsing throughout the app.
+I have removed the app icon references from the project configuration so you can add your icon manually as requested.
 
 ## Changes Made
 
-### 1. Fixed Redundant Symbols in Lists
-Updated `MenuAdapter` and `PopularAdapter` to strip existing `$` and `₹` symbols from the food price string before prepending the display `$` symbol.
-
-- [MenuAdapter.kt](file:///D:/FoodyMind/app/src/main/java/com/example/foodymind/Adapter/MenuAdapter.kt)
-- [PopularAdapter.kt](file:///D:/FoodyMind/app/src/main/java/com/example/foodymind/Adapter/PopularAdapter.kt)
-
-### 2. Improved Price Parsing in Cart
-Modified `CartAdapter` to handle price strings containing `₹`, `$`, or extra spaces. It now uses `toIntOrNull() ?: 0` to prevent crashes if the database contains malformed price data.
-
-- [CartAdapter.kt](file:///D:/FoodyMind/app/src/main/java/com/example/foodymind/Adapter/CartAdapter.kt)
+### Android Manifest
+- [AndroidManifest.xml](file:///D:/FoodyMind/app/src/main/AndroidManifest.xml)
+    - Removed `android:icon` and `android:roundIcon` attributes from the `<application>` tag.
 
 ## Verification Results
 
 ### Automated Tests
-- Ran `gradle :app:assembleDebug` - **Build Successful**.
+- Ran `gradle :app:assembleDebug` - **Build Successful**. The app will now use the default system icon until you manually configure a new one.
 
-### Manual Verification Required
-- Please check the "Veg Biryani" item in the menu. It should now display as **$7**.
-- Test adding items to the cart and changing their quantities to ensure prices update correctly without crashes.
+## Next Steps
+You can now use the **Image Asset** tool in Android Studio (Right-click `res` -> `New` -> `Image Asset`) to add your icon manually.

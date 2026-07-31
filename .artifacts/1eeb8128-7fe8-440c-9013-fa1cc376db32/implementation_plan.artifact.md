@@ -1,32 +1,30 @@
-# Implementation Plan - Fix Price Display Issues
+# Implementation Plan - Remove App Icon Configuration
 
-The user reported a bug where "Veg Biryani" shows two dollar signs ("$$7"). This is due to the app hardcoding a "$" symbol while the data from the database might already include a "$" symbol. Additionally, some parts of the code only handle "₹" or "$" but not both, which could lead to crashes or incorrect display.
-
-## User Review Required
-> [!NOTE]
-> This change will ensure that all prices are displayed in USD (prefixed with a single `$`) by stripping any existing `$` or `₹` symbols from the raw data before formatting.
+The user wants to completely remove the current app icon configuration because they intend to add it manually (likely using Android Studio's Image Asset tool or by manually placing files).
 
 ## Proposed Changes
 
-### Adapters
+### Android Manifest
 ---
-#### [MODIFY] [MenuAdapter.kt](file:///D:/FoodyMind/app/src/main/java/com/example/foodymind/Adapter/MenuAdapter.kt)
-- Update `priceMenu.text` to strip both `$` and `₹` from `menuItem.foodPrice`.
-- Clean the price passed to `DetailActivity` via intent to avoid redundant symbols in downstream activities.
+#### [MODIFY] [AndroidManifest.xml](file:///D:/FoodyMind/app/src/main/AndroidManifest.xml)
+- Remove `android:icon` and `android:roundIcon` attributes from the `<application>` tag. This will leave the app with no specific icon reference, allowing the user to set it up fresh.
 
-#### [MODIFY] [PopularAdapter.kt](file:///D:/FoodyMind/app/src/main/java/com/example/foodymind/Adapter/PopularAdapter.kt)
-- Update `binding.pricePopular.text` to strip both `$` and `₹` from the price string.
+### Resources
+---
+#### [DELETE] [ic_launcher.xml](file:///D:/FoodyMind/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml)
+- Remove the custom adaptive icon definition.
 
-#### [MODIFY] [CartAdapter.kt](file:///D:/FoodyMind/app/src/main/java/com/example/foodymind/Adapter/CartAdapter.kt)
-- Fix `decreaseQuantity` function where `₹` was not being stripped, which could lead to a `NumberFormatException` if the price contained a rupee symbol.
-- Ensure consistent symbol stripping in `bind` and `increaseQuantity` as well.
+#### [DELETE] [ic_launcher_round.xml](file:///D:/FoodyMind/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml)
+- Remove the custom round adaptive icon definition.
+
+#### [DELETE] [ic_launcher_background_custom.xml](file:///D:/FoodyMind/app/src/main/res/drawable/ic_launcher_background_custom.xml)
+- Remove the custom background layer.
+
+#### [DELETE] [ic_launcher_foreground_custom.xml](file:///D:/FoodyMind/app/src/main/res/drawable/ic_launcher_foreground_custom.xml)
+- Remove the custom foreground layer.
 
 ## Verification Plan
 
 ### Manual Verification
-- **Menu List**: Verify "Veg Biryani" shows as "$7" instead of "$$7".
-- **Popular List**: Verify popular items have consistent "$[price]" formatting.
-- **Cart**:
-    - Verify item prices show correctly.
-    - Test `+` and `-` buttons in the cart to ensure calculations work and no crashes occur when symbols are present in the data.
-- **Detail Page**: Click on an item and verify the data passed to `DetailActivity` doesn't lead to issues (although `DetailActivity` currently doesn't seem to display the price, it uses it for adding to cart).
+- Verify that `AndroidManifest.xml` no longer contains the icon attributes.
+- Ensure the project still builds (though the launcher will use a default system icon until the user adds their own).
